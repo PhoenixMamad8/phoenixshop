@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود / ثبت نام - PhoenixShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Vazirmatn', sans-serif; } </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
+        <div class="text-center">
+            <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-20 w-auto mx-auto mb-4"></a>
+            <h2 class="text-2xl font-bold">به PhoenixShop خوش آمدید</h2>
+        </div>
+        
+        <!-- Container for Success/Error Messages -->
+        <div id="message-container" class="hidden p-4 rounded-md text-center"></div>
+
+        <div>
+            <div class="flex border-b">
+                <button id="login-tab-btn" class="flex-1 py-2 text-center font-semibold text-purple-600 border-b-2 border-purple-600">ورود</button>
+                <button id="register-tab-btn" class="flex-1 py-2 text-center font-semibold text-gray-500 border-b-2 border-transparent">ثبت نام</button>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label for="login-email" class="block text-sm font-medium text-gray-700">ایمیل</label>
+                <input id="login-email" name="email" type="email" required class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+                <label for="login-password" class="block text-sm font-medium text-gray-700">رمز عبور</label>
+                <input id="login-password" name="password" type="password" required class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div><button type="submit" class="w-full px-4 py-2 font-bold text-white bg-purple-600 rounded-md hover:bg-purple-700">ورود به حساب</button></div>
+        </form>
+
+        <!-- Registration Form (action and method removed) -->
+        <form id="register-form" class="hidden space-y-6">
+            <div>
+                <label for="register-email" class="block text-sm font-medium text-gray-700">ایمیل</label>
+                <input id="register-email" name="email" type="email" required class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+                <label for="register-phone" class="block text-sm font-medium text-gray-700">شماره همراه</label>
+                <input id="register-phone" name="phone" type="tel" required class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div>
+                <label for="register-password" class="block text-sm font-medium text-gray-700">رمز عبور</label>
+                <input id="register-password" name="password" type="password" required class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+            </div>
+            <div><button type="submit" class="w-full px-4 py-2 font-bold text-white bg-blue-600 rounded-md hover:bg-blue-700">ایجاد حساب کاربری</button></div>
+        </form>
+    </div>
+
+    <script>
+        // Tab switching logic (remains the same)
+        const loginTabBtn = document.getElementById('login-tab-btn');
+        const registerTabBtn = document.getElementById('register-tab-btn');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const messageContainer = document.getElementById('message-container');
+
+        loginTabBtn.addEventListener('click', () => {
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            loginTabBtn.classList.add('text-purple-600', 'border-purple-600');
+            loginTabBtn.classList.remove('text-gray-500', 'border-transparent');
+            registerTabBtn.classList.add('text-gray-500', 'border-transparent');
+            registerTabBtn.classList.remove('text-purple-600', 'border-purple-600');
+            messageContainer.classList.add('hidden'); // Hide message on tab switch
+        });
+
+        registerTabBtn.addEventListener('click', () => {
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+            registerTabBtn.classList.add('text-purple-600', 'border-purple-600');
+            registerTabBtn.classList.remove('text-gray-500', 'border-transparent');
+            loginTabBtn.classList.add('text-gray-500', 'border-transparent');
+            loginTabBtn.classList.remove('text-purple-600', 'border-purple-600');
+            messageContainer.classList.add('hidden'); // Hide message on tab switch
+        });
+
+        // *** NEW: JavaScript to handle form submission ***
+        registerForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the default page reload
+
+            const formData = new FormData(registerForm);
+            const data = new URLSearchParams(formData);
+
+            try {
+                const response = await fetch('/.netlify/functions/register', {
+                    method: 'POST',
+                    body: data,
+                });
+
+                if (response.ok) {
+                    // Success!
+                    messageContainer.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    messageContainer.classList.add('bg-green-100', 'text-green-700');
+                    messageContainer.textContent = 'ثبت نام شما با موفقیت انجام شد!';
+                    registerForm.reset(); // Clear the form
+                } else {
+                    // Handle server errors (like 500)
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'خطایی در سرور رخ داد.');
+                }
+            } catch (error) {
+                // Handle network errors or other issues
+                messageContainer.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                messageContainer.classList.add('bg-red-100', 'text-red-700');
+                messageContainer.textContent = `خطا: ${error.message}`;
+            }
+        });
+    </script>
+
+</body>
+</html>
