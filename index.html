@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoenixShop - فروشگاه اکانت و سرور</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style> body { font-family: 'Vazirmatn', sans-serif; } </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-24">
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">فروشگاه</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">سرویس‌ها</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">وبلاگ</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">تماس با ما</a>
+                </nav>
+                <div>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105">
+                        ورود / ثبت نام
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- ================================================== -->
+        <!-- Hero Section - UPDATED WITH BACKGROUND IMAGE -->
+        <!-- ================================================== -->
+        <section class="relative text-white py-24 md:py-40">
+            
+            <!-- Layer 1: Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/cover1.jpg');"></div>
+            
+            <!-- Layer 2: Dark Overlay for text readability -->
+            <div class="absolute inset-0 bg-black opacity-60"></div> 
+            
+            <!-- Layer 3: Text Content -->
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-black leading-tight">
+                    دنیای دیجیتال در دستان شماست
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+                    اکانت‌های پرمیوم، یوسی پابجی، سرورهای مجازی و سرویس کاهش پینگ، همه در PhoenixShop با بهترین قیمت و تحویل فوری.
+                </p>
+                <div class="mt-8">
+                    <a href="#" class="bg-white text-purple-600 font-bold px-8 py-3 rounded-lg text-lg hover:bg-gray-100 transition-transform hover:scale-105 shadow-lg">
+                        مشاهده همه محصولات
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ================================================== -->
+        <!-- END OF UPDATED SECTION -->
+        <!-- ================================================== -->
+
+        <!-- Categories Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">دسته‌بندی محصولات</h2>
+                    <p class="text-gray-500 mt-2">محصول مورد نظر خود را به راحتی پیدا کنید.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                    <!-- Category Cards... -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">محصولات ویژه</h2>
+                    <p class="text-gray-500 mt-2">پرفروش‌ترین و محبوب‌ترین محصولات ما.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product Cards... -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <!-- Footer content... -->
+    </footer>
+
+</body>
+</html>
