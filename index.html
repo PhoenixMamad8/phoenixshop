@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoenixShop - فروشگاه اکانت و سرور</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .text-shadow { text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
+        /* Custom styles for Swiper navigation buttons */
+        .swiper-button-next, .swiper-button-prev {
+            color: #8B5CF6; /* Purple color */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <!-- Your modern header code remains here... -->
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Background Image -->
+        <section class="relative text-white py-24 md:py-40">
+            <!-- Your hero section code remains here... -->
+        </section>
+
+        <!-- ================================================== -->
+        <!-- Products Section - REDESIGNED AS A SLIDER -->
+        <!-- ================================================== -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">محصولات ما</h2>
+                    <p class="text-gray-500 mt-2">جدیدترین محصولات و سرویس‌ها را مرور کنید.</p>
+                </div>
+                
+                <!-- Swiper Slider -->
+                <div class="swiper max-w-5xl mx-auto">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Spotify -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 border rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center">اکانت اسپاتیفای</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <div class="flex justify-between items-center text-gray-700">
+                                        <p>اسپاتیفای ایندیویال ۱ ماهه</p>
+                                        <p class="font-bold text-purple-700">۱۲۵,۰۰۰ تومان</p>
+                                    </div>
+                                    <div class="flex justify-between items-center text-gray-700">
+                                        <p>اسپاتیفای فمیلی ممبر ۱ ماهه</p>
+                                        <p class="font-bold text-purple-700">۹۵,۰۰۰ تومان</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: YouTube -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 border rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center">اکانت یوتیوب پرمیوم</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <div class="flex justify-between items-center text-gray-700">
+                                        <p>یوتیوب پرمیوم ایندیویال ۱ ماهه</p>
+                                        <p class="font-bold text-purple-700">۱۲۵,۰۰۰ تومان</p>
+                                    </div>
+                                    <div class="flex justify-between items-center text-gray-700">
+                                        <p>یوتیوب پرمیوم فمیلی ممبر ۱ ماهه</p>
+                                        <p class="font-bold text-purple-700">۶۵,۰۰۰ تومان</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: VPS -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 border rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center">سرور مجازی خارج</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <p class="text-gray-700 text-center">پلن‌های متنوع با منابع و لوکیشن‌های مختلف از بهترین دیتاسنترهای جهان.</p>
+                                </div>
+                                <p class="font-bold text-purple-700 text-center mt-4">شروع قیمت از ۲۹۵,۰۰۰ تومان</p>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده پلن‌ها</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: OpenAI -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 border rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center">پلاس OpenAI</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <p class="text-gray-700 text-center">دسترسی کامل به مدل زبان GPT-4 و تمام قابلیت‌های ChatGPT Plus.</p>
+                                </div>
+                                <p class="font-bold text-purple-700 text-center mt-4">۵۹۵,۰۰۰ تومان</p>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">خرید اشتراک</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5: Visa Card -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 border rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center">ویزاکارت مجازی</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <p class="text-gray-700 text-center">مناسب برای خریدهای آنلاین و فعالسازی سرویس‌های بین‌المللی در مبالغ دلخواه.</p>
+                                </div>
+                                <p class="font-bold text-purple-700 text-center mt-4">مبالغ ۱، ۳، ۵، ۷ دلاری و بیشتر</p>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">استعلام و خرید</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination mt-8"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white">
+        <!-- Your comprehensive footer code remains here... -->
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        // Your hamburger menu logic remains here...
+    </script>
+    
+    <!-- JavaScript for Swiper Slider -->
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                }
+            },
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+</body>
+</html>
