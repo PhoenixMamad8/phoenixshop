@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoenixShop - فروشگاه اکانت و سرور</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .text-shadow { text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6); }
+        .swiper-button-next, .swiper-button-prev { color: #8B5CF6; transform: scale(0.7); }
+        #popup-modal { transition: opacity 0.3s ease-in-out; }
+        .popup-content { transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+        #popup-modal.hidden { opacity: 0; pointer-events: none; }
+        #popup-modal.hidden .popup-content { transform: scale(0.95); }
+    </style>
+
+    <!-- ** SCRIPT FOR AUTOMATIC DARK MODE ** -->
+    <script>
+        // This script checks the user's OS preference and adds/removes the 'dark' class
+        // to the <html> element. It runs immediately to prevent a "flash" of the wrong theme.
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <!-- We also need to tell Tailwind that we are using the 'class' strategy -->
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+        }
+    </script>
+
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <!-- Popup Modal Section -->
+    <div id="popup-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+        <div id="popup-overlay" class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
+        <div class="popup-content relative bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 md:p-8 w-full max-w-md mx-4">
+            <button id="close-popup-btn" class="absolute top-4 left-4 text-gray-400 hover:text-gray-800 dark:hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-gray-700">
+                    <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mt-4 dark:text-white">اطلاعیه مهم</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">در حال حاضر خرید مستقیم از سایت امکان‌پذیر نمی‌باشد.</p>
+                <p class="mt-4 font-semibold dark:text-gray-100">جهت خرید و مشاوره، لطفاً از طریق راه‌های زیر با ما در ارتباط باشید:</p>
+                <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                    <a href="https://t.me/phoenix_admini" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">...</a>
+                    <a href="https://wa.me/989224787056" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition-colors">...</a>
+                </div>
+                <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">به زودی فروش مستقیم از سایت آغاز خواهد شد. از شکیبایی شما سپاسگزاریم.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 z-40 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-28">
+                <div class="flex-1 flex justify-start">
+                    <button id="hamburger-btn" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-24 w-24 object-cover rounded-full shadow-lg border-2 border-white dark:border-gray-700"></a>
+                </div>
+                <div class="flex-1 flex justify-end items-center space-x-4 space-x-reverse">
+                    <a href="#" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" title="سبد خرید">...</a>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105 hidden sm:block">ورود / ثبت نام</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto px-4 pb-4 bg-white dark:bg-gray-800 md:bg-transparent dark:md:bg-transparent">
+            <nav class="flex flex-col space-y-2">
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">فروشگاه</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">سرویس‌ها</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">وبلاگ</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">تماس با ما</a>
+                <a href="login.html" class="text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 block sm:hidden px-3 py-2 rounded-md text-base font-medium">ورود / ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="relative text-white py-24 md:py-40 bg-cover bg-center" style="background-image: url('img/cover1.jpg');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center">...</div>
+        </section>
+        <section id="products" class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12"><h2 class="text-3xl font-bold text-gray-900 dark:text-white">محصولات ما</h2><p class="text-gray-500 dark:text-gray-400 mt-2">جدیدترین محصولات و سرویس‌ها را مرور کنید.</p></div>
+                <div class="swiper max-w-6xl mx-auto">
+                    <div class="swiper-wrapper pb-12">
+                        <!-- Slide 1: Spotify -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col">
+                                <h3 class="text-2xl font-bold mb-4 text-center dark:text-white">اکانت اسپاتیفای</h3>
+                                <div class="space-y-4 flex-grow">
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>اسپاتیفای ایندیویال ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۱۲۵,۰۰۰ تومان</p></div>
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>اسپاتیفای فمیلی ممبر ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۹۵,۰۰۰ تومان</p></div>
+                                </div>
+                                <a href="#" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده</a>
+                            </div>
+                        </div>
+                        <!-- Other slides follow the same dark mode pattern -->
+                    </div>
+                    <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section (Already dark, so it looks good in both modes) -->
+    <footer class="bg-gray-800 text-white">
+        <!-- ... Your full footer code ... -->
+    </footer>
+
+    <!-- Swiper.js Script -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- All JavaScript logic -->
+    <script>
+        // --- Popup Modal Logic ---
+        const popupModal = document.getElementById('popup-modal');
+        const closePopupBtn = document.getElementById('close-popup-btn');
+        const popupOverlay = document.getElementById('popup-overlay');
+        function showPopup() { popupModal.classList.remove('hidden'); }
+        function hidePopup() { popupModal.classList.add('hidden'); }
+        if (!sessionStorage.getItem('popupShown')) {
+            window.addEventListener('load', () => {
+                showPopup();
+                sessionStorage.setItem('popupShown', 'true');
+            });
+        }
+        closePopupBtn.addEventListener('click', hidePopup);
+        popupOverlay.addEventListener('click', hidePopup);
+
+        // --- Hamburger Menu Logic ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        
+        // --- Swiper Slider Logic ---
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    </script>
+
+</body>
+</html>
