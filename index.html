@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoenixShop - فروشگاه اکانت و سرور</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .text-shadow { text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6); }
+        .swiper-button-next, .swiper-button-prev { color: #8B5CF6; transform: scale(0.7); }
+        #popup-modal { transition: opacity 0.3s ease-in-out; }
+        .popup-content { transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+        #popup-modal.hidden { opacity: 0; pointer-events: none; }
+        #popup-modal.hidden .popup-content { transform: scale(0.95); }
+    </style>
+
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <div id="popup-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+        <div id="popup-overlay" class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
+        <div class="popup-content relative bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 md:p-8 w-full max-w-md mx-4">
+            <button id="close-popup-btn" class="absolute top-4 left-4 text-gray-400 hover:text-gray-800 dark:hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-gray-700">
+                    <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mt-4 dark:text-white">اطلاعیه مهم</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">در حال حاضر خرید مستقیم از سایت امکان‌پذیر نمی‌باشد.</p>
+                <p class="mt-4 font-semibold dark:text-gray-100">جهت خرید و مشاوره، لطفاً از طریق راه‌های زیر با ما در ارتباط باشید:</p>
+                <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                    <a href="https://t.me/phoenix_admini" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.88l-1.44 6.99c-.13.62-.58.78-1.08.49l-2.2-1.61-1.06 1.02c-.2.2-.37.37-.74.37l.26-2.25 4.18-3.8c.18-.16-.05-.25-.3-.09L8.24 13.6l-2.16-.67c-.63-.2-.64-.65.13-1l8.4-3.23c.54-.2.98.16.83.85z"/></svg>
+                        <span>پشتیبانی تلگرام</span>
+                    </a>
+                    <a href="https://wa.me/989224787056" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.79 3.02 1.22 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM9.53 8.5c.28-.47.42-.51.58-.52.19-.01.36-.01.5-.01.2 0 .46.06.7.34.28.32.94 1.01.94 2.41 0 1.4-.94 2.82-1.08 2.96-.14.14-1.24.99-2.45.5-1.21-.49-2.02-1.12-2.85-2.14-.65-.8-1.08-1.77-.99-2.7.09-.92.63-1.51.82-1.71.19-.2.39-.25.53-.25.11 0 .22 0 .31.01z"/></svg>
+                        <span>پشتیبانی واتس‌اپ</span>
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">به زودی فروش مستقیم از سایت آغاز خواهد شد. از شکیبایی شما سپاسگزاریم.</p>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 z-40 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-28">
+                <div class="flex-1 flex justify-start">
+                    <button id="hamburger-btn" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-24 w-24 object-cover rounded-full shadow-lg border-2 border-white dark:border-gray-700"></a>
+                </div>
+                <div class="flex-1 flex justify-end items-center space-x-4 space-x-reverse">
+                    <a href="#" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" title="سبد خرید"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></a>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105 hidden sm:block">ورود / ثبت نام</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto px-4 pb-4 bg-white dark:bg-gray-800 md:bg-transparent dark:md:bg-transparent">
+            <nav class="flex flex-col space-y-2">
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">فروشگاه</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">سرویس‌ها</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">وبلاگ</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">تماس با ما</a>
+                <a href="login.html" class="text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 block sm:hidden px-3 py-2 rounded-md text-base font-medium">ورود / ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative text-white py-24 md:py-40 bg-cover bg-center" style="background-image: url('img/cover1.jpg');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-black leading-tight text-shadow">دنیای دیجیتال در دستان شماست</h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto text-shadow">اکانت‌های پرمیوم، سرورهای مجازی و سرویس‌های آنلاین با بهترین قیمت و تحویل فوری.</p>
+                <div class="mt-8"><a href="#products" class="bg-purple-600 text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-purple-700 transition-transform hover:scale-105 shadow-lg">مشاهده محصولات</a></div>
+            </div>
+        </section>
+        <section id="products" class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12"><h2 class="text-3xl font-bold text-gray-900 dark:text-white">محصولات ما</h2><p class="text-gray-500 dark:text-gray-400 mt-2">جدیدترین محصولات و سرویس‌ها را مرور کنید.</p></div>
+                <div class="swiper max-w-6xl mx-auto">
+                    <div class="swiper-wrapper pb-12">
+                        
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col text-center">
+                                <img src="img/spotify.JPG" alt="Spotify Logo" class="w-24 h-16 mx-auto mb-4 rounded-lg object-contain">
+                                <h3 class="text-2xl font-bold mb-4 dark:text-white">اکانت اسپاتیفای</h3>
+                                <div class="space-y-4 flex-grow text-right">
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>ایندیویوال ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۱۲۵,۰۰۰ تومان</p></div>
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>فمیلی ممبر ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۸۵,۰۰۰ تومان</p></div>
+                                </div>
+                                <a href="spotify.html" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col text-center">
+                                <img src="img/youtube.jpg" alt="YouTube Logo" class="w-24 h-16 mx-auto mb-4 rounded-lg object-contain">
+                                <h3 class="text-2xl font-bold mb-4 dark:text-white">اکانت یوتیوب پرمیوم</h3>
+                                <div class="space-y-4 flex-grow text-right">
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>ایندیویوال ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۱۲۵,۰۰۰ تومان</p></div>
+                                    <div class="flex justify-between items-center text-gray-700 dark:text-gray-300"><p>فمیلی ممبر ۱ ماهه</p><p class="font-bold text-purple-700 dark:text-purple-400">۶۵,۰۰۰ تومان</p></div>
+                                </div>
+                                <a href="youtube.html" class="mt-6 bg-purple-600 text-white text-center py-2 rounded-lg hover:bg-purple-700">مشاهده</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide h-auto"><div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col justify-between"><h3 class="text-2xl font-bold mb-4 text-center dark:text-white">سرور مجازی خارج</h3><p class="text-gray-700 dark:text-gray-300 text-center flex-grow">پلن‌های متنوع با منابع و لوکیشن‌های مختلف از بهترین دیتاسنترهای جهان.</p><div class="text-center mt-4"><p class="font-bold text-purple-700 dark:text-purple-400">شروع قیمت از ۲۹۵,۰۰۰ تومان</p><a href="#" class="mt-4 inline-block bg-purple-600 text-white text-center py-2 px-6 rounded-lg hover:bg-purple-700">مشاهده پلن‌ها</a></div></div></div>
+                        <div class="swiper-slide h-auto"><div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col justify-between"><h3 class="text-2xl font-bold mb-4 text-center dark:text-white">پلاس OpenAI</h3><p class="text-gray-700 dark:text-gray-300 text-center flex-grow">دسترسی کامل به مدل زبان GPT-4 و تمام قابلیت‌های ChatGPT Plus.</p><div class="text-center mt-4"><p class="font-bold text-purple-700 dark:text-purple-400">۵۹۵,۰۰۰ تومان</p><a href="#" class="mt-4 inline-block bg-purple-600 text-white text-center py-2 px-6 rounded-lg hover:bg-purple-700">خرید اشتراک</a></div></div></div>
+                        <div class="swiper-slide h-auto"><div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 h-full flex flex-col justify-between"><h3 class="text-2xl font-bold mb-4 text-center dark:text-white">ویزاکارت مجازی</h3><p class="text-gray-700 dark:text-gray-300 text-center flex-grow">مناسب برای خریدهای آنلاین و فعالسازی سرویس‌های بین‌المللی در مبالغ دلخواه.</p><div class="text-center mt-4"><p class="font-bold text-purple-700 dark:text-purple-400">مبالغ ۱، ۳، ۵، ۷ دلاری و بیشتر</p><a href="#" class="mt-4 inline-block bg-purple-600 text-white text-center py-2 px-6 rounded-lg hover:bg-purple-700">استعلام و خرید</a></div></div></div>
+                    </div>
+                    <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2"><h4 class="text-xl font-bold mb-4">درباره PhoenixShop</h4><p class="text-gray-400">فینیکس‌شاپ ارائه‌دهنده انواع خدمات و محصولات دیجیتال با هدف ارائه بهترین کیفیت و پشتیبانی به کاربران ایرانی است. ما در تلاشیم تا دسترسی به سرویس‌های جهانی را برای شما آسان‌تر کنیم.</p></div>
+                <div><h4 class="text-xl font-bold mb-4">پشتیبانی و تماس</h4><div class="flex space-x-4 space-x-reverse"><a href="#" class="text-gray-400 hover:text-white" title="تلگرام"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.88l-1.44 6.99c-.13.62-.58.78-1.08.49l-2.2-1.61-1.06 1.02c-.2.2-.37.37-.74.37l.26-2.25 4.18-3.8c.18-.16-.05-.25-.3-.09L8.24 13.6l-2.16-.67c-.63-.2-.64-.65.13-1l8.4-3.23c.54-.2.98.16.83.85z"/></svg></a><a href="#" class="text-gray-400 hover:text-white" title="واتس‌اپ"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.79 3.02 1.22 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM9.53 8.5c.28-.47.42-.51.58-.52.19-.01.36-.01.5-.01.2 0 .46.06.7.34.28.32.94 1.01.94 2.41 0 1.4-.94 2.82-1.08 2.96-.14.14-1.24.99-2.45.5-1.21-.49-2.02-1.12-2.85-2.14-.65-.8-1.08-1.77-.99-2.7.09-.92.63-1.51.82-1.71.19-.2.39-.25.53-.25.11 0 .22 0 .31.01z"/></svg></a></div></div>
+                <div><h4 class="text-xl font-bold mb-4">نماد اعتماد</h4><div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-600 text-sm">جای نماد</span></div></div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500"><p>&copy; ۱۴۰۳ - تمامی حقوق برای PhoenixShop محفوظ است.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const popupModal = document.getElementById('popup-modal');
+        const closePopupBtn = document.getElementById('close-popup-btn');
+        const popupOverlay = document.getElementById('popup-overlay');
+        function showPopup() { popupModal.classList.remove('hidden'); }
+        function hidePopup() { popupModal.classList.add('hidden'); }
+        if (!sessionStorage.getItem('popupShown')) {
+            window.addEventListener('load', () => {
+                showPopup();
+                sessionStorage.setItem('popupShown', 'true');
+            });
+        }
+        closePopupBtn.addEventListener('click', hidePopup);
+        popupOverlay.addEventListener('click', hidePopup);
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    </script>
+
+</body>
+</html>
