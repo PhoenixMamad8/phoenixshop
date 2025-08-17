@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سرور مجازی (VPS) - PhoenixShop</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style> body { font-family: 'Vazirmatn', sans-serif; } </style>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-28">
+                <div class="flex-1 flex justify-start">
+                    <button id="hamburger-btn" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-24 w-24 object-cover rounded-full shadow-lg border-2 border-white dark:border-gray-700"></a>
+                </div>
+                <div class="flex-1 flex justify-end items-center space-x-4 space-x-reverse">
+                    <a href="#" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" title="سبد خرید"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></a>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105 hidden sm:block">ورود / ثبت نام</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto px-4 pb-4 bg-white dark:bg-gray-800 md:bg-transparent dark:md:bg-transparent">
+            <nav class="flex flex-col space-y-2">
+                <a href="index.html#products" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">فروشگاه</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">سرویس‌ها</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">وبلاگ</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">تماس با ما</a>
+                <a href="login.html" class="text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 block sm:hidden px-3 py-2 rounded-md text-base font-medium">ورود / ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-20 text-center">
+        <div class="flex flex-col items-center">
+            <img src="img/vps.png" alt="VPS Icon" class="w-48 h-48 mb-6">
+            <h1 class="text-4xl font-black text-gray-900 dark:text-white">فروش سرور مجازی (VPS)</h1>
+            <p class="mt-4 text-2xl text-purple-600 dark:text-purple-400">به زودی...</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+                ما در حال آماده‌سازی بهترین و باکیفیت‌ترین پلن‌های سرور مجازی از دیتاسنترهای معتبر جهانی هستیم. این بخش به زودی با اطلاعات کامل و امکان خرید آنلاین راه‌اندازی خواهد شد.
+            </p>
+            <a href="index.html" class="mt-8 bg-purple-600 text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-purple-700 transition-transform hover:scale-105 shadow-lg">
+                بازگشت به صفحه اصلی
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2"><h4 class="text-xl font-bold mb-4">درباره PhoenixShop</h4><p class="text-gray-400">فینیکس‌شاپ ارائه‌دهنده انواع خدمات و محصولات دیجیتال با هدف ارائه بهترین کیفیت و پشتیبانی به کاربران ایرانی است. ما در تلاشیم تا دسترسی به سرویس‌های جهانی را برای شما آسان‌تر کنیم.</p></div>
+                <div><h4 class="text-xl font-bold mb-4">پشتیبانی و تماس</h4><div class="flex space-x-4 space-x-reverse"><a href="https://wa.me/989224787056" target="_blank" class="text-gray-400 hover:text-white" title="واتس‌اپ"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.79 3.02 1.22 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM9.53 8.5c.28-.47.42-.51.58-.52.19-.01.36-.01.5-.01.2 0 .46.06.7.34.28.32.94 1.01.94 2.41 0 1.4-.94 2.82-1.08 2.96-.14.14-1.24.99-2.45.5-1.21-.49-2.02-1.12-2.85-2.14-.65-.8-1.08-1.77-.99-2.7.09-.92.63-1.51.82-1.71.19-.2.39-.25.53-.25.11 0 .22 0 .31.01z"/></svg></a><a href="https://t.me/phoenix_admini" target="_blank" class="text-gray-400 hover:text-white" title="تلگرام"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.88l-1.44 6.99c-.13.62-.58.78-1.08.49l-2.2-1.61-1.06 1.02c-.2.2-.37.37-.74.37l.26-2.25 4.18-3.8c.18-.16-.05-.25-.3-.09L8.24 13.6l-2.16-.67c-.63-.2-.64-.65.13-1l8.4-3.23c.54-.2.98.16.83.85z"/></svg></a></div></div>
+                <div><h4 class="text-xl font-bold mb-4">نماد اعتماد</h4><div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-600 text-sm">جای نماد</span></div></div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center"><p class="text-sm text-gray-400">این سایت توسط تیم فونیکس کمپانی طراحی شده و تمامی حق و حقوق سایت توسط این کمپانی میباشد.</p><div class="mt-4 flex justify-center items-center space-x-6 space-x-reverse"><a href="http://thephoenixco.ir" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">thephoenixco.ir</a></div></div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+</html>
