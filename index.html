@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Co | محمدحسن قلی زاده - طراح و توسعه‌دهنده وب</title>
+    
+    <!-- Google Fonts (Estedad for body, Lalezar for heading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;700&family=Lalezar&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* --- Luxury Gold & Charcoal Theme Variables --- */
+        :root {
+            --bg-color: #F9FAFB;
+            --text-color: #374151;
+            --card-bg: #ffffff;
+            --accent-color: #C5A47E;
+            --accent-darker: #B8860B;
+            --border-color: #E5E7EB;
+            --shadow-color: rgba(0, 0, 0, 0.07);
+            --gradient-border: linear-gradient(45deg, var(--accent-darker), var(--accent-color));
+            --font-body: 'Estedad', sans-serif;
+            --font-heading: 'Lalezar', cursive;
+        }
+
+        body.dark-mode {
+            --bg-color: #111827;
+            --text-color: #D1D5DB;
+            --card-bg: #1F2937;
+            --accent-color: #C5A47E;
+            --accent-darker: #B8860B;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- General Styles --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        h1, h2, h3 { font-weight: 700; }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        section { padding: 80px 0; }
+
+        /* --- Theme & Language Controls --- */
+        .top-controls {
+            position: fixed;
+            top: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        html[dir="rtl"] .top-controls { left: 20px; }
+        html[dir="ltr"] .top-controls { right: 20px; }
+
+        .theme-toggle, .language-switcher button {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover, .language-switcher button:hover { 
+            transform: scale(1.1); 
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        .theme-toggle .fa-sun { display: none; }
+        body.dark-mode .theme-toggle .fa-sun { display: block; }
+        body.dark-mode .theme-toggle .fa-moon { display: none; }
+
+        .language-switcher { position: relative; }
+        .language-switcher ul {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            list-style: none;
+            padding: 5px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 120px;
+            z-index: 1001;
+        }
+        .language-switcher.is-open ul { display: block; }
+        .language-switcher ul li {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .language-switcher ul li:hover { background-color: var(--border-color); }
+
+        /* --- Redesigned Hero Section --- */
+        .hero {
+            color: #ffffff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-image: url('img/cover1.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(31, 41, 55, 0.75);
+            z-index: 1;
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero .profile-pic-wrapper {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            padding: 6px;
+            background: var(--gradient-border);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .hero .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1F2937;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+        }
+        .hero .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #F9FAFB;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 8px;
+        }
+        .hero .hero-subtitle.creative-title {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #D1D5DB;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Services Section with Swiper.js --- */
+        #services { background-color: var(--bg-color); }
+        .services-slider { padding-bottom: 50px; }
+        .swiper-slide { height: auto; }
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px var(--shadow-color);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            height: 100%;
+        }
+        a.service-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+        a.service-card-link .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        a.service-card-link:hover .service-card {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px var(--shadow-color);
+        }
+        .service-card h3 {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        .service-card ul { list-style: none; padding: 0; margin-bottom: 20px; flex-grow: 1; }
+        .service-card ul li { margin-bottom: 12px; font-size: 1rem; }
+        .service-card ul li::before {
+            content: '✓';
+            color: var(--accent-color);
+            opacity: 0.8;
+            font-weight: bold;
+            display: inline-block;
+        }
+        html[dir="rtl"] .service-card ul li::before { margin-left: 10px; }
+        html[dir="ltr"] .service-card ul li::before { margin-right: 10px; }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .card-cta-wrapper {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .card-cta-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        a.service-card-link:hover .card-cta-btn,
+        .card-cta-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Swiper.js Custom Styles */
+        .swiper-pagination-bullet {
+            background-color: var(--text-color);
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: var(--accent-color);
+            opacity: 1;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--accent-color);
+        }
+
+        /* --- Process Section --- */
+        #process { background-color: var(--card-bg); }
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .process-step {
+            flex-basis: calc(20% - 20px);
+            text-align: center;
+            padding: 20px;
+        }
+        .process-step .icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .process-step p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 992px) {
+            .process-step { flex-basis: calc(50% - 20px); }
+        }
+        @media (max-width: 576px) {
+            .process-step { flex-basis: 100%; }
+        }
+
+        /* --- Contact Form Section --- */
+        #contact { background-color: var(--bg-color); }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            text-align: right;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--accent-color);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: var(--accent-darker);
+            transform: translateY(-3px);
+        }
+        .direct-contact-divider {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-weight: 500;
+        }
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-links a {
+            text-decoration: none;
+            color: var(--accent-color);
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .contact-links a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+        }
+        .contact-links a i { font-size: 1.3rem; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1F2937;
+            color: #9CA3AF;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+        footer span { 
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero .hero-subtitle { font-size: 1.1rem; }
+            .hero .hero-subtitle.creative-title { font-size: 1rem; }
+            h2 { font-size: 1.8rem; }
+            .swiper-button-next, .swiper-button-prev { display: none; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-links a { width: 90%; justify-content: center; }
+            .top-controls {
+                html[dir="rtl"] & { left: 15px; }
+                html[dir="ltr"] & { right: 15px; }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-controls">
+        <button class="theme-toggle" id="theme-toggle" title="Change Theme">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        <div class="language-switcher">
+            <button id="lang-toggle-btn"><i class="fas fa-globe"></i></button>
+            <ul id="lang-menu">
+                <li data-lang="fa">فارسی</li>
+                <li data-lang="en">English</li>
+                <li data-lang="ar">العربية</li>
+                <li data-lang="tr">Türkçe</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="profile-pic-wrapper">
+                <img src="img/logo.jpg" alt="عکس پرسنلی محمدحسن قلی زاده" class="profile-pic">
+            </div>
+            <h1 data-key="heroName">محمدحسن قلی زاده</h1>
+            <p class="hero-subtitle" data-key="heroBrand">مالک کسب و کار فونیکس کمپانی</p>
+            <p class="hero-subtitle creative-title" data-key="heroJobTitle">برنامه نویس و طراح سایت و شبکه و توسعه دهنده فول استک</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 data-key="servicesTitle">خدمات ما</h2>
+                <!-- Swiper -->
+                <div class="swiper services-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Website Design -->
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3 data-key="service1Title">طراحی وب‌سایت</h3>
+                                <ul>
+                                    <li data-key="service1Feat1">طراحی فرانت اند مدرن</li>
+                                    <li data-key="service1Feat2">برنامه نویسی بک اند قدرتمند</li>
+                                    <li data-key="service1Feat3">بهینه سازی برای موتورهای جستجو (سئو)</li>
+                                    <li data-key="service1Feat4">خدمات دامنه و هاستینگ</li>
+                                    <li data-key="service1Feat5">۱ سال پشتیبانی رایگان</li>
+                                </ul>
+                                <div class="card-cta-wrapper">
+                                    <a href="#contact" class="card-cta-btn" data-key="ctaBtn">مشاوره و استعلام قیمت</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2: Software & Bots -->
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3 data-key="service2Title">نرم افزار و ربات تلگرام</h3>
+                                <ul>
+                                    <li data-key="service2Feat1">توسعه نرم‌افزارهای دسکتاپ</li>
+                                    <li data-key="service2Feat2">ساخت ربات‌های هوشمند تلگرامی</li>
+                                    <li data-key="service2Feat3">اتصال به سرویس‌ها و API ها</li>
+                                    <li data-key="service2Feat4">ارائه پنل مدیریت حرفه‌ای</li>
+                                </ul>
+                                <div class="card-cta-wrapper">
+                                    <a href="#contact" class="card-cta-btn" data-key="ctaBtn">مشاوره و استعلام قیمت</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3: Training -->
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3 data-key="service3Title">آموزش و مشاوره</h3>
+                                <ul>
+                                    <li data-key="service3Feat1">کلاس‌های خصوصی و گروهی طراحی سایت</li>
+                                    <li data-key="service3Feat2">آموزش برنامه نویسی از پایه تا پیشرفته</li>
+                                    <li data-key="service3Feat3">مشاوره تخصصی برای کسب‌وکارها</li>
+                                    <li data-key="service3Feat4">منتورینگ و راهبری تیم‌های فنی</li>
+                                </ul>
+                                <div class="card-cta-wrapper">
+                                    <a href="#contact" class="card-cta-btn" data-key="ctaBtn">مشاوره و استعلام قیمت</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 4: Phoenix Store -->
+                        <div class="swiper-slide">
+                            <a href="https://phoenixsho.ir" target="_blank" rel="noopener noreferrer" class="service-card-link">
+                                <div class="service-card">
+                                    <h3 data-key="service4Title">فروشگاه فونیکس</h3>
+                                    <div class="coming-soon-badge" data-key="service4Badge">به زودی</div>
+                                    <ul>
+                                        <li data-key="service4Feat1">فروش اکانت‌های پرمیوم (Spotify, YouTube)</li>
+                                        <li data-key="service4Feat2">خدمات ویزاکارت و پرداخت‌های بین‌المللی</li>
+                                        <li data-key="service4Feat3">خدمات گیمینگ (یوسی پابجی و...)</li>
+                                        <li data-key="service4Feat4">و محصولات دیجیتال دیگر</li>
+                                    </ul>
+                                    <div class="card-cta-wrapper">
+                                        <span class="card-cta-btn" data-key="ctaBtnStore">ورود به فروشگاه</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <div class="container">
+                <h2 data-key="processTitle">روند کاری ما</h2>
+                <div class="process-container">
+                    <div class="process-step">
+                        <div class="icon"><i class="fas fa-comments"></i></div>
+                        <h4 data-key="process1Title">مشاوره و کشف</h4>
+                        <p data-key="process1Desc">نیازها و اهداف پروژه شما را به دقت بررسی می‌کنیم.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <h4 data-key="process2Title">طراحی UI/UX</h4>
+                        <p data-key="process2Desc">طراحی رابط کاربری زیبا و تجربه کاربری بهینه.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h4 data-key="process3Title">توسعه و برنامه‌نویسی</h4>
+                        <p data-key="process3Desc">تبدیل طرح‌ها به یک محصول زنده و کارآمد.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon"><i class="fas fa-check-double"></i></div>
+                        <h4 data-key="process4Title">تست و تحویل</h4>
+                        <p data-key="process4Desc">اطمینان از عملکرد بی‌نقص و تحویل نهایی پروژه.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon"><i class="fas fa-headset"></i></div>
+                        <h4 data-key="process5Title">پشتیبانی و نگهداری</h4>
+                        <p data-key="process5Desc">ارائه خدمات پشتیبانی برای تضمین پایداری پروژه.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container contact-container">
+                <h2 data-key="contactTitle">ارتباط با ما</h2>
+                <p data-key="contactDesc">برای مشاوره رایگان، سفارش پروژه یا شرکت در کلاس‌های آموزشی، فرم زیر را تکمیل کنید.</p>
+                
+                <form name="contact" class="contact-form" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div class="form-group">
+                        <input type="text" name="name" required data-key-placeholder="formNamePlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="contact_info" required data-key-placeholder="formContactPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" data-key="formServiceDefault">نوع سرویس را انتخاب کنید...</option>
+                            <option value="Website Design" data-key="formService1">طراحی وب‌سایت</option>
+                            <option value="Software/Bot" data-key="formService2">نرم افزار / ربات تلگرام</option>
+                            <option value="Training" data-key="formService3">آموزش و مشاوره</option>
+                            <option value="Other" data-key="formService4">سایر موارد</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" required data-key-placeholder="formMessagePlaceholder"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" data-key="formSubmitBtn">ارسال پیام</button>
+                </form>
+
+                <div class="direct-contact-divider" data-key="directContactDivider">یا از طریق راه‌های زیر مستقیماً با ما در ارتباط باشید</div>
+
+                <div class="contact-links">
+                    <a href="https://wa.me/989224787056" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-key="contactWhatsapp">گفتگو در واتس‌اپ</span>
+                    </a>
+                    <a href="https://t.me/phoenix_admini" target="_blank">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span data-key="contactTelegram">گفتگو در تلگرام</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-key="footerText">&copy; 1403 - تمامی حقوق برای <span>Phoenix Co</span> محفوظ است. | طراحی و توسعه توسط محمدحسن قلی زاده</p>
+        </div>
+    </footer>
+
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // --- All JavaScript Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Theming (Dark/Light Mode) ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            const applyTheme = () => {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                body.classList.toggle('dark-mode', savedTheme === 'dark');
+            };
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            });
+
+            // --- 2. Multi-language System (Click-based) ---
+            const translations = {
+                fa: {
+                    heroName: "محمدحسن قلی زاده",
+                    heroBrand: "مالک کسب و کار فونیکس کمپانی",
+                    heroJobTitle: "برنامه نویس و طراح سایت و شبکه و توسعه دهنده فول استک",
+                    servicesTitle: "خدمات ما",
+                    ctaBtn: "مشاوره و استعلام قیمت",
+                    ctaBtnStore: "ورود به فروشگاه",
+                    service1Title: "طراحی وب‌سایت",
+                    service1Feat1: "طراحی فرانت اند مدرن",
+                    service1Feat2: "برنامه نویسی بک اند قدرتمند",
+                    service1Feat3: "بهینه سازی برای موتورهای جستجو (سئو)",
+                    service1Feat4: "خدمات دامنه و هاستینگ",
+                    service1Feat5: "۱ سال پشتیبانی رایگان",
+                    service2Title: "نرم افزار و ربات تلگرام",
+                    service2Feat1: "توسعه نرم‌افزارهای دسکتاپ",
+                    service2Feat2: "ساخت ربات‌های هوشمند تلگرامی",
+                    service2Feat3: "اتصال به سرویس‌ها و API ها",
+                    service2Feat4: "ارائه پنل مدیریت حرفه‌ای",
+                    service3Title: "آموزش و مشاوره",
+                    service3Feat1: "کلاس‌های خصوصی و گروهی طراحی سایت",
+                    service3Feat2: "آموزش برنامه نویسی از پایه تا پیشرفته",
+                    service3Feat3: "مشاوره تخصصی برای کسب‌وکارها",
+                    service3Feat4: "منتورینگ و راهبری تیم‌های فنی",
+                    service4Title: "فروشگاه فونیکس",
+                    service4Badge: "به زودی",
+                    service4Feat1: "فروش اکانت‌های پرمیوم (Spotify, YouTube)",
+                    service4Feat2: "خدمات ویزاکارت و پرداخت‌های بین‌المللی",
+                    service4Feat3: "خدمات گیمینگ (یوسی پابجی و...)",
+                    service4Feat4: "و محصولات دیجیتال دیگر",
+                    processTitle: "روند کاری ما",
+                    process1Title: "مشاوره و کشف",
+                    process1Desc: "نیازها و اهداف پروژه شما را به دقت بررسی می‌کنیم.",
+                    process2Title: "طراحی UI/UX",
+                    process2Desc: "طراحی رابط کاربری زیبا و تجربه کاربری بهینه.",
+                    process3Title: "توسعه و برنامه‌نویسی",
+                    process3Desc: "تبدیل طرح‌ها به یک محصول زنده و کارآمد.",
+                    process4Title: "تست و تحویل",
+                    process4Desc: "اطمینان از عملکرد بی‌نقص و تحویل نهایی پروژه.",
+                    process5Title: "پشتیبانی و نگهداری",
+                    process5Desc: "ارائه خدمات پشتیبانی برای تضمین پایداری پروژه.",
+                    contactTitle: "ارتباط با ما",
+                    contactDesc: "برای مشاوره رایگان، سفارش پروژه یا شرکت در کلاس‌های آموزشی، فرم زیر را تکمیل کنید.",
+                    formNamePlaceholder: "نام و نام خانوادگی",
+                    formContactPlaceholder: "ایمیل یا شماره تماس",
+                    formServiceDefault: "نوع سرویس را انتخاب کنید...",
+                    formService1: "طراحی وب‌سایت",
+                    formService2: "نرم افزار / ربات تلگرام",
+                    formService3: "آموزش و مشاوره",
+                    formService4: "سایر موارد",
+                    formMessagePlaceholder: "توضیحات پروژه شما...",
+                    formSubmitBtn: "ارسال پیام",
+                    directContactDivider: "یا از طریق راه‌های زیر مستقیماً با ما در ارتباط باشید",
+                    contactWhatsapp: "گفتگو در واتس‌اپ",
+                    contactTelegram: "گفتگو در تلگرام",
+                    footerText: "&copy; 2024 - تمامی حقوق برای <span>فونیکس کمپانی</span> محفوظ است. | طراحی و توسعه توسط محمدحسن قلی زاده"
+                },
+                en: {
+                    heroName: "M.H. Gholizadeh",
+                    heroBrand: "Business Owner, Phoenix Co",
+                    heroJobTitle: "Programmer, Web & Network Designer, and Full-Stack Developer",
+                    servicesTitle: "Our Services",
+                    ctaBtn: "Get a Quote & Consultation",
+                    ctaBtnStore: "Visit Store",
+                    service1Title: "Website Design",
+                    service1Feat1: "Modern Front-End Design",
+                    service1Feat2: "Powerful Back-End Development",
+                    service1Feat3: "Search Engine Optimization (SEO)",
+                    service1Feat4: "Domain & Hosting Services",
+                    service1Feat5: "1 Year of Free Support",
+                    service2Title: "Software & Telegram Bots",
+                    service2Feat1: "Desktop Application Development",
+                    service2Feat2: "Building Smart Telegram Bots",
+                    service2Feat3: "Integration with Services & APIs",
+                    service2Feat4: "Professional Admin Panel",
+                    service3Title: "Training & Consultation",
+                    service3Feat1: "Private & Group Web Design Classes",
+                    service3Feat2: "Programming Training (Beginner to Advanced)",
+                    service3Feat3: "Specialized Business Consultation",
+                    service3Feat4: "Mentoring for Technical Teams",
+                    service4Title: "Phoenix Store",
+                    service4Badge: "Coming Soon",
+                    service4Feat1: "Premium Account Sales (Spotify, YouTube)",
+                    service4Feat2: "Visa Card & International Payment Services",
+                    service4Feat3: "Gaming Services (PUBG UC, etc.)",
+                    service4Feat4: "And other digital products",
+                    processTitle: "Our Process",
+                    process1Title: "Consultation & Discovery",
+                    process1Desc: "We carefully analyze your project's needs and goals.",
+                    process2Title: "UI/UX Design",
+                    process2Desc: "Crafting a beautiful interface and optimal user experience.",
+                    process3Title: "Development",
+                    process3Desc: "Bringing designs to life with efficient and clean code.",
+                    process4Title: "Testing & Delivery",
+                    process4Desc: "Ensuring flawless performance and final project delivery.",
+                    process5Title: "Support & Maintenance",
+                    process5Desc: "Providing ongoing support to ensure project stability.",
+                    contactTitle: "Contact Us",
+                    contactDesc: "For a free consultation, project inquiries, or to join our classes, please fill out the form below.",
+                    formNamePlaceholder: "Full Name",
+                    formContactPlaceholder: "Email or Phone Number",
+                    formServiceDefault: "Select a service type...",
+                    formService1: "Website Design",
+                    formService2: "Software / Telegram Bot",
+                    formService3: "Training & Consultation",
+                    formService4: "Other",
+                    formMessagePlaceholder: "Tell us about your project...",
+                    formSubmitBtn: "Send Message",
+                    directContactDivider: "Or contact us directly via",
+                    contactWhatsapp: "Chat on WhatsApp",
+                    contactTelegram: "Chat on Telegram",
+                    footerText: "&copy; 2024 - All rights reserved for <span>Phoenix Co</span>. | Designed & Developed by M.H. Gholizadeh"
+                },
+                ar: {
+                    heroName: "محمد حسن قلي زاده",
+                    heroBrand: "مالك شركة فونيكس کمپاني",
+                    heroJobTitle: "مبرمج، مصمم مواقع وشبكات، ومطور متكامل",
+                    servicesTitle: "خدماتنا",
+                    ctaBtn: "اطلب استشارة وعرض سعر",
+                    ctaBtnStore: "زيارة المتجر",
+                    service1Title: "تصميم مواقع الويب",
+                    service1Feat1: "تصميم واجهات أمامية حديثة",
+                    service1Feat2: "تطوير خلفية قوية",
+                    service1Feat3: "تحسين محركات البحث (SEO)",
+                    service1Feat4: "خدمات النطاق والاستضافة",
+                    service1Feat5: "سنة واحدة من الدعم المجاني",
+                    service2Title: "برامج وروبوتات تليجرام",
+                    service2Feat1: "تطوير برامج سطح المكتب",
+                    service2Feat2: "بناء روبوتات تليجرام ذكية",
+                    service2Feat3: "التكامل مع الخدمات وواجهات برمجة التطبيقات",
+                    service2Feat4: "لوحة تحكم احترافية",
+                    service3Title: "التدريب والاستشارات",
+                    service3Feat1: "دروس تصميم المواقع الخاصة والجماعية",
+                    service3Feat2: "تدريب على البرمجة (من المبتدئ إلى المتقدم)",
+                    service3Feat3: "استشارات متخصصة للشركات",
+                    service3Feat4: "توجيه الفرق الفنية",
+                    service4Title: "متجر فونيكس",
+                    service4Badge: "قريباً",
+                    service4Feat1: "بيع الحسابات المميزة (Spotify, YouTube)",
+                    service4Feat2: "خدمات بطاقة فيزا والمدفوعات الدولية",
+                    service4Feat3: "خدمات الألعاب (UC ببجي، إلخ)",
+                    service4Feat4: "ومنتجات رقمية أخرى",
+                    processTitle: "منهجية عملنا",
+                    process1Title: "الاستشارة والاكتشاف",
+                    process1Desc: "نقوم بتحليل احتياجات وأهداف مشروعك بعناية.",
+                    process2Title: "تصميم الواجهة وتجربة المستخدم",
+                    process2Desc: "تصميم واجهة جميلة وتجربة مستخدم مثالية.",
+                    process3Title: "التطوير والبرمجة",
+                    process3Desc: "تحويل التصاميم إلى منتج حي وفعال.",
+                    process4Title: "الاختبار والتسليم",
+                    process4Desc: "ضمان الأداء الخالي من العيوب وتسليم المشروع النهائي.",
+                    process5Title: "الدعم والصيانة",
+                    process5Desc: "تقديم الدعم المستمر لضمان استقرار المشروع.",
+                    contactTitle: "اتصل بنا",
+                    contactDesc: "للحصول على استشارة مجانية أو للاستفسار عن المشاريع أو للانضمام إلى دوراتنا، يرجى ملء النموذج أدناه.",
+                    formNamePlaceholder: "الاسم الكامل",
+                    formContactPlaceholder: "البريد الإلكتروني أو رقم الهاتف",
+                    formServiceDefault: "اختر نوع الخدمة...",
+                    formService1: "تصميم موقع ويب",
+                    formService2: "برنامج / روبوت تليجرام",
+                    formService3: "التدريب والاستشارات",
+                    formService4: "أخرى",
+                    formMessagePlaceholder: "أخبرنا عن مشروعك...",
+                    formSubmitBtn: "إرسال الرسالة",
+                    directContactDivider: "أو تواصل معنا مباشرة عبر",
+                    contactWhatsapp: "محادثة عبر واتساب",
+                    contactTelegram: "محادثة عبر تليجرام",
+                    footerText: "&copy; 2024 - جميع الحقوق محفوظة لشركة <span>Phoenix Co</span>. | تصميم وتطوير محمد حسن قلي زاده"
+                },
+                tr: {
+                    heroName: "M.H. Gholizadeh",
+                    heroBrand: "İş Sahibi, Phoenix Company",
+                    heroJobTitle: "Programcı, Web ve Ağ Tasarımcısı ve Full-Stack Geliştirici",
+                    servicesTitle: "Hizmetlerimiz",
+                    ctaBtn: "Teklif ve Danışmanlık Al",
+                    ctaBtnStore: "Mağazayı Ziyaret Et",
+                    service1Title: "Web Sitesi Tasarımı",
+                    service1Feat1: "Modern Ön Yüz Tasarımı",
+                    service1Feat2: "Güçlü Arka Yüz Geliştirme",
+                    service1Feat3: "Arama Motoru Optimizasyonu (SEO)",
+                    service1Feat4: "Alan Adı ve Hosting Hizmetleri",
+                    service1Feat5: "1 Yıl Ücretsiz Destek",
+                    service2Title: "Yazılım ve Telegram Botları",
+                    service2Feat1: "Masaüstü Uygulama Geliştirme",
+                    service2Feat2: "Akıllı Telegram Botları Oluşturma",
+                    service2Feat3: "Servisler ve API'lerle Entegrasyon",
+                    service2Feat4: "Profesyonel Yönetim Paneli",
+                    service3Title: "Eğitim ve Danışmanlık",
+                    service3Feat1: "Özel ve Grup Web Tasarım Dersleri",
+                    service3Feat2: "Programlama Eğitimi (Başlangıçtan İleri Seviyeye)",
+                    service3Feat3: "İşletmeler için Uzman Danışmanlık",
+                    service3Feat4: "Teknik Ekipler için Mentorluk",
+                    service4Title: "Phoenix Mağazası",
+                    service4Badge: "Çok Yakında",
+                    service4Feat1: "Premium Hesap Satışı (Spotify, YouTube)",
+                    service4Feat2: "Visa Kart ve Uluslararası Ödeme Hizmetleri",
+                    service4Feat3: "Oyun Hizmetleri (PUBG UC, vb.)",
+                    service4Feat4: "Ve diğer dijital ürünler",
+                    processTitle: "Çalışma Sürecimiz",
+                    process1Title: "Danışmanlık ve Keşif",
+                    process1Desc: "Projenizin ihtiyaçlarını ve hedeflerini dikkatlice analiz ediyoruz.",
+                    process2Title: "UI/UX Tasarımı",
+                    process2Desc: "Güzel bir arayüz ve en iyi kullanıcı deneyimini tasarlıyoruz.",
+                    process3Title: "Geliştirme",
+                    process3Desc: "Tasarımları verimli ve temiz kodla hayata geçiriyoruz.",
+                    process4Title: "Test ve Teslimat",
+                    process4Desc: "Kusursuz performansı sağlayıp projeyi teslim ediyoruz.",
+                    process5Title: "Destek ve Bakım",
+                    process5Desc: "Proje istikrarını sağlamak için sürekli destek sunuyoruz.",
+                    contactTitle: "Bize Ulaşın",
+                    contactDesc: "Ücretsiz danışmanlık, proje talepleri veya derslerimize katılmak için lütfen aşağıdaki formu doldurun.",
+                    formNamePlaceholder: "Ad Soyad",
+                    formContactPlaceholder: "E-posta veya Telefon Numarası",
+                    formServiceDefault: "Bir hizmet türü seçin...",
+                    formService1: "Web Sitesi Tasarımı",
+                    formService2: "Yazılım / Telegram Botu",
+                    formService3: "Eğitim ve Danışmanlık",
+                    formService4: "Diğer",
+                    formMessagePlaceholder: "Bize projenizden bahsedin...",
+                    formSubmitBtn: "Mesaj Gönder",
+                    directContactDivider: "Veya doğrudan bizimle iletişime geçin",
+                    contactWhatsapp: "WhatsApp'ta Sohbet Et",
+                    contactTelegram: "Telegram'da Sohbet Et",
+                    footerText: "&copy; 2024 - Tüm hakları <span>Phoenix Co</span>'ya aittir. | Tasarım ve Geliştirme: M.H. Gholizadeh"
+                }
+            };
+
+            const langToggleButton = document.getElementById('lang-toggle-btn');
+            const langMenu = document.getElementById('lang-menu');
+            const langSwitcher = document.querySelector('.language-switcher');
+
+            const setLanguage = (lang) => {
+                const elements = document.querySelectorAll('[data-key]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+                
+                const placeholders = document.querySelectorAll('[data-key-placeholder]');
+                placeholders.forEach(el => {
+                    const key = el.getAttribute('data-key-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.placeholder = translations[lang][key];
+                    }
+                });
+
+                document.documentElement.lang = lang;
+                document.documentElement.dir = (lang === 'fa' || lang === 'ar') ? 'rtl' : 'ltr';
+                
+                localStorage.setItem('language', lang);
+            };
+
+            langToggleButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langSwitcher.classList.toggle('is-open');
+            });
+
+            langMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'LI') {
+                    const lang = e.target.getAttribute('data-lang');
+                    setLanguage(lang);
+                    langSwitcher.classList.remove('is-open');
+                }
+            });
+
+            window.addEventListener('click', () => {
+                if (langSwitcher.classList.contains('is-open')) {
+                    langSwitcher.classList.remove('is-open');
+                }
+            });
+
+            // --- 3. Swiper Slider Initialization ---
+            const swiper = new Swiper('.services-slider', {
+                loop: true,
+                grabCursor: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1, spaceBetween: 20 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 }
+                }
+            });
+
+            // --- Initial Load ---
+            applyTheme();
+            const savedLang = localStorage.getItem('language') || 'fa';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>
