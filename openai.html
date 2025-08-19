@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>خرید اشتراک ChatGPT Plus - PhoenixShop</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style> body { font-family: 'Vazirmatn', sans-serif; } </style>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <!-- Header Section (Same as other pages) -->
+    <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-28">
+                <div class="flex-1 flex justify-start">
+                    <button id="hamburger-btn" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-24 w-24 object-cover rounded-full shadow-lg border-2 border-white dark:border-gray-700"></a>
+                </div>
+                <div class="flex-1 flex justify-end items-center space-x-4 space-x-reverse">
+                    <a href="#" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" title="سبد خرید"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></a>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105 hidden sm:block">ورود / ثبت نام</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto px-4 pb-4 bg-white dark:bg-gray-800 md:bg-transparent dark:md:bg-transparent">
+            <nav class="flex flex-col space-y-2">
+                <a href="index.html#products" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">فروشگاه</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">سرویس‌ها</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">وبلاگ</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">تماس با ما</a>
+                <a href="login.html" class="text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 block sm:hidden px-3 py-2 rounded-md text-base font-medium">ورود / ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Product Page Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            <div class="flex flex-col items-center text-center lg:sticky lg:top-36">
+                <img src="img/openai.png" alt="OpenAI Logo" class="w-48 h-48 rounded-lg shadow-lg mb-6 object-contain">
+                <h1 class="text-4xl font-black text-gray-900 dark:text-white">اشتراک ChatGPT Plus</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-lg">
+                    با فعال‌سازی اشتراک پلاس، به جدیدترین و قدرتمندترین مدل‌های زبان OpenAI از جمله GPT-4 دسترسی پیدا کنید، از سرعت پاسخ‌دهی بالاتر لذت ببرید و اولین نفر باشید که از قابلیت‌های جدید استفاده می‌کند.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-inner">
+                <form action="#" method="POST">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 dark:text-white">۱. نوع اشتراک را انتخاب کنید:</h2>
+                        <div class="space-y-4">
+                            <label class="flex items-center p-4 border rounded-lg cursor-pointer has-[:checked]:bg-purple-50 has-[:checked]:border-purple-500 dark:border-gray-700 dark:has-[:checked]:bg-gray-700">
+                                <input type="radio" name="plan_type" id="plan-shared" value="shared" class="ml-4" checked>
+                                <span class="flex-grow">دریافت اکانت اشتراکی</span>
+                                <span class="font-bold text-purple-600 dark:text-purple-400">۵۹۵,۰۰۰ تومان</span>
+                            </label>
+                            <label class="flex items-center p-4 border rounded-lg cursor-pointer has-[:checked]:bg-purple-50 has-[:checked]:border-purple-500 dark:border-gray-700 dark:has-[:checked]:bg-gray-700">
+                                <input type="radio" name="plan_type" id="plan-personal" value="personal" class="ml-4">
+                                <span class="flex-grow">فعال‌سازی روی ایمیل شخصی</span>
+                                <span class="font-bold text-purple-600 dark:text-purple-400">۱,۹۵۰,۰۰۰ تومان</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="form-fields" class="min-h-[150px]">
+                        <!-- Fields for SHARED account -->
+                        <div id="fields-shared" class="space-y-4">
+                            <h2 class="text-2xl font-bold mb-4 dark:text-white">۲. اطلاعات تماس شما:</h2>
+                            <div><label for="shared-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">ایمیل (جهت دریافت اطلاعات اکانت)</label><input type="email" id="shared-email" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                        </div>
+                        <!-- Fields for PERSONAL account -->
+                        <div id="fields-personal" class="hidden space-y-4">
+                            <h2 class="text-2xl font-bold mb-4 dark:text-white">۲. اطلاعات اکانت شما:</h2>
+                            <div><label for="personal-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">ایمیل OpenAI</label><input type="email" id="personal-email" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                            <div><label for="personal-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">پسورد OpenAI</label><input type="password" id="personal-password" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition-colors">افزودن به سبد خرید</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12">
+        <!-- ... Your full footer code ... -->
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        const planShared = document.getElementById('plan-shared');
+        const planPersonal = document.getElementById('plan-personal');
+        const fieldsShared = document.getElementById('fields-shared');
+        const fieldsPersonal = document.getElementById('fields-personal');
+
+        function toggleFields() {
+            if (planShared.checked) {
+                fieldsShared.classList.remove('hidden');
+                fieldsPersonal.classList.add('hidden');
+            } else if (planPersonal.checked) {
+                fieldsPersonal.classList.remove('hidden');
+                fieldsShared.classList.add('hidden');
+            }
+        }
+        planShared.addEventListener('change', toggleFields);
+        planPersonal.addEventListener('change', toggleFields);
+    </script>
+</body>
+</html>
