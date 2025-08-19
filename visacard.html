@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرید ویزاکارت مجازی - PhoenixShop</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style> body { font-family: 'Vazirmatn', sans-serif; } </style>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-28">
+                <div class="flex-1 flex justify-start">
+                    <button id="hamburger-btn" class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <a href="index.html"><img src="img/logo.jpg" alt="PhoenixShop Logo" class="h-24 w-24 object-cover rounded-full shadow-lg border-2 border-white dark:border-gray-700"></a>
+                </div>
+                <div class="flex-1 flex justify-end items-center space-x-4 space-x-reverse">
+                    <a href="#" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" title="سبد خرید"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></a>
+                    <a href="login.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition-transform hover:scale-105 hidden sm:block">ورود / ثبت نام</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden container mx-auto px-4 pb-4 bg-white dark:bg-gray-800 md:bg-transparent dark:md:bg-transparent">
+            <nav class="flex flex-col space-y-2">
+                <a href="index.html#products" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">فروشگاه</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">سرویس‌ها</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">وبلاگ</a>
+                <a href="#" class="text-gray-700 dark:text-gray-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 block px-3 py-2 rounded-md text-base font-medium">تماس با ما</a>
+                <a href="login.html" class="text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 block sm:hidden px-3 py-2 rounded-md text-base font-medium">ورود / ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div class="flex flex-col items-center text-center lg:sticky lg:top-36">
+                <img src="img/visa.png" alt="Visa Card" class="w-64 rounded-lg shadow-lg mb-6 object-contain">
+                <h1 class="text-4xl font-black text-gray-900 dark:text-white">ویزاکارت مجازی</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-lg">با ویزاکارت‌های مجازی ما، به راحتی خریدهای آنلاین بین‌المللی خود را انجام دهید و اشتراک سرویس‌های جهانی را فعال کنید.</p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-inner">
+                <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
+                    <button id="papara-tab-btn" class="flex-1 py-2 text-center font-semibold text-purple-600 border-b-2 border-purple-600">پاپارا کارت ترکیه</button>
+                    <button id="global-tab-btn" class="flex-1 py-2 text-center font-semibold text-gray-500 dark:text-gray-400 border-b-2 border-transparent">ویزاکارت گلوبال</button>
+                </div>
+                <div id="papara-section">
+                    <form id="papara-form">
+                        <div class="mb-6">
+                            <h2 class="text-xl font-bold mb-4 dark:text-white">نوع سفارش پاپارا:</h2>
+                            <div class="flex gap-4">
+                                <label class="flex-1 flex items-center p-3 border rounded-lg cursor-pointer has-[:checked]:bg-purple-50 has-[:checked]:border-purple-500 dark:border-gray-700 dark:has-[:checked]:bg-gray-700">
+                                    <input type="radio" name="papara_order_type" value="issue" class="ml-2" checked><span>صدور کارت جدید</span>
+                                </label>
+                                <label class="flex-1 flex items-center p-3 border rounded-lg cursor-pointer has-[:checked]:bg-purple-50 has-[:checked]:border-purple-500 dark:border-gray-700 dark:has-[:checked]:bg-gray-700">
+                                    <input type="radio" name="papara_order_type" value="reload" class="ml-2"><span>شارژ حساب</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="papara-issue-fields" class="space-y-4">
+                            <div><label class="block text-sm font-medium">ایمیل (جهت ارسال اطلاعات)</label><input type="email" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                            <div><label class="block text-sm font-medium">میزان شارژ اولیه (لیر)</label><input type="number" id="papara-issue-amount" placeholder="حداکثر 2200 لیر" max="2200" min="1" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                        </div>
+                        <div id="papara-reload-fields" class="hidden space-y-4">
+                            <div><label class="block text-sm font-medium">شماره ویزاکارت پاپارا</label><input type="text" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                            <div><label class="block text-sm font-medium">مبلغ شارژ (لیر)</label><input type="number" id="papara-reload-amount" placeholder="حداکثر 2200 لیر" max="2200" min="1" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                        </div>
+                        <div class="mt-6 p-4 bg-yellow-50 dark:bg-gray-700 border-r-4 border-yellow-400 text-yellow-800 dark:text-yellow-200">
+                            <p class="font-bold">توجه: برای دریافت کد OTP جهت تکمیل خرید، پس از پرداخت، شماره سفارش را به <a href="https://t.me/phoenix_admini" target="_blank" class="underline">پشتیبانی تلگرام</a> ارسال نمایید.</p>
+                        </div>
+                        <div class="mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg text-center">
+                            <p class="text-gray-600 dark:text-gray-300">مبلغ قابل پرداخت:</p>
+                            <p id="papara-total-price" class="text-3xl font-black text-purple-600 dark:text-purple-400">محاسبه نشده</p>
+                        </div>
+                        <div class="mt-6"><button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700">افزودن به سبد خرید</button></div>
+                    </form>
+                </div>
+                <div id="global-section" class="hidden">
+                    <form id="global-form">
+                        <div class="mb-6">
+                            <h2 class="text-xl font-bold mb-4 dark:text-white">انتخاب مبلغ کارت (غیرقابل شارژ):</h2>
+                            <select id="global-card-amount" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                                <option value="3">۳ دلاری</option>
+                                <option value="5">۵ دلاری</option>
+                                <option value="10">۱۰ دلاری</option>
+                                <option value="20">۲۰ دلاری</option>
+                                <option value="30">۳۰ دلاری</option>
+                                <option value="50">۵۰ دلاری</option>
+                                <option value="100">۱۰۰ دلاری</option>
+                            </select>
+                        </div>
+                        <div class="space-y-4">
+                            <div><label class="block text-sm font-medium">ایمیل (جهت ارسال مشخصات کارت)</label><input type="email" class="mt-1 w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" required></div>
+                        </div>
+                        <div class="mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg text-center">
+                            <p class="text-gray-600 dark:text-gray-300">مبلغ قابل پرداخت:</p>
+                            <p id="global-total-price" class="text-3xl font-black text-purple-600 dark:text-purple-400">محاسبه نشده</p>
+                        </div>
+                        <div class="mt-6"><button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700">افزودن به سبد خرید</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2"><h4 class="text-xl font-bold mb-4">درباره PhoenixShop</h4><p class="text-gray-400">فینیکس‌شاپ ارائه‌دهنده انواع خدمات و محصولات دیجیتال با هدف ارائه بهترین کیفیت و پشتیبانی به کاربران ایرانی است. ما در تلاشیم تا دسترسی به سرویس‌های جهانی را برای شما آسان‌تر کنیم.</p></div>
+                <div><h4 class="text-xl font-bold mb-4">پشتیبانی و تماس</h4><div class="flex space-x-4 space-x-reverse"><a href="https://wa.me/989224787056" target="_blank" class="text-gray-400 hover:text-white" title="واتس‌اپ"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.79 3.02 1.22 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM9.53 8.5c.28-.47.42-.51.58-.52.19-.01.36-.01.5-.01.2 0 .46.06.7.34.28.32.94 1.01.94 2.41 0 1.4-.94 2.82-1.08 2.96-.14.14-1.24.99-2.45.5-1.21-.49-2.02-1.12-2.85-2.14-.65-.8-1.08-1.77-.99-2.7.09-.92.63-1.51.82-1.71.19-.2.39-.25.53-.25.11 0 .22 0 .31.01z"/></svg></a><a href="https://t.me/phoenix_admini" target="_blank" class="text-gray-400 hover:text-white" title="تلگرام"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.88l-1.44 6.99c-.13.62-.58.78-1.08.49l-2.2-1.61-1.06 1.02c-.2.2-.37.37-.74.37l.26-2.25 4.18-3.8c.18-.16-.05-.25-.3-.09L8.24 13.6l-2.16-.67c-.63-.2-.64-.65.13-1l8.4-3.23c.54-.2.98.16.83.85z"/></svg></a></div></div>
+                <div><h4 class="text-xl font-bold mb-4">نماد اعتماد</h4><div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-600 text-sm">جای نماد</span></div></div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center"><p class="text-sm text-gray-400">این سایت توسط تیم فونیکس کمپانی طراحی شده و تمامی حق و حقوق سایت توسط این کمپانی میباشد.</p><div class="mt-4 flex justify-center items-center space-x-6 space-x-reverse"><a href="http://thephoenixco.ir" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">thephoenixco.ir</a></div></div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        const paparaTabBtn = document.getElementById('papara-tab-btn');
+        const globalTabBtn = document.getElementById('global-tab-btn');
+        const paparaSection = document.getElementById('papara-section');
+        const globalSection = document.getElementById('global-section');
+
+        paparaTabBtn.addEventListener('click', () => {
+            paparaSection.classList.remove('hidden');
+            globalSection.classList.add('hidden');
+            paparaTabBtn.classList.add('text-purple-600', 'border-purple-600');
+            globalTabBtn.classList.remove('text-purple-600', 'border-purple-600');
+            globalTabBtn.classList.add('text-gray-500', 'dark:text-gray-400');
+        });
+
+        globalTabBtn.addEventListener('click', () => {
+            globalSection.classList.remove('hidden');
+            paparaSection.classList.add('hidden');
+            globalTabBtn.classList.add('text-purple-600', 'border-purple-600');
+            paparaTabBtn.classList.remove('text-purple-600', 'border-purple-600');
+            paparaTabBtn.classList.add('text-gray-500', 'dark:text-gray-400');
+        });
+
+        const paparaOrderTypeRadios = document.querySelectorAll('input[name="papara_order_type"]');
+        const paparaIssueFields = document.getElementById('papara-issue-fields');
+        const paparaReloadFields = document.getElementById('papara-reload-fields');
+        const paparaIssueAmount = document.getElementById('papara-issue-amount');
+        const paparaReloadAmount = document.getElementById('papara-reload-amount');
+        const paparaTotalPrice = document.getElementById('papara-total-price');
+        const LIRA_RATE = 2900;
+
+        function calculatePaparaPrice() {
+            const isIssue = document.querySelector('input[name="papara_order_type"]:checked').value === 'issue';
+            const fee = isIssue ? 40 : 10;
+            const amountInput = isIssue ? paparaIssueAmount : paparaReloadAmount;
+            const amount = parseFloat(amountInput.value) || 0;
+            
+            if (amount > 0) {
+                const total = (amount + fee) * LIRA_RATE;
+                paparaTotalPrice.textContent = total.toLocaleString('fa-IR') + ' تومان';
+            } else {
+                paparaTotalPrice.textContent = 'مبلغ را وارد کنید';
+            }
+        }
+
+        paparaOrderTypeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const isIssue = radio.value === 'issue';
+                paparaIssueFields.classList.toggle('hidden', !isIssue);
+                paparaReloadFields.classList.toggle('hidden', isIssue);
+                calculatePaparaPrice();
+            });
+        });
+        paparaIssueAmount.addEventListener('input', calculatePaparaPrice);
+        paparaReloadAmount.addEventListener('input', calculatePaparaPrice);
+
+        const globalCardAmount = document.getElementById('global-card-amount');
+        const globalTotalPrice = document.getElementById('global-total-price');
+        const DOLLAR_RATE = 95000;
+        const GLOBAL_FEE = 3;
+
+        function calculateGlobalPrice() {
+            const amount = parseFloat(globalCardAmount.value);
+            const total = (amount + GLOBAL_FEE) * DOLLAR_RATE;
+            globalTotalPrice.textContent = total.toLocaleString('fa-IR') + ' تومان';
+        }
+
+        globalCardAmount.addEventListener('change', calculateGlobalPrice);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            calculatePaparaPrice();
+            calculateGlobalPrice();
+        });
+    </script>
+</body>
+</html>
